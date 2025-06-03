@@ -32,7 +32,7 @@ class Student extends CI_Controller
         if ($this->session->userdata('student_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = ('Dashboard');
+        $page_data['page_title'] = 'Tableau de bord';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE TEACHERS*****/
@@ -46,7 +46,7 @@ class Student extends CI_Controller
         }
         $page_data['teachers']   = $this->db->get('teacher')->result_array();
         $page_data['page_name']  = 'teacher';
-        $page_data['page_title'] = 'Teachers';
+        $page_data['page_title'] = 'Profs';
         $this->load->view('backend/index', $page_data);
     }
     /***********************************************************************************************************/
@@ -63,7 +63,7 @@ class Student extends CI_Controller
             'class_id' => $student_class_id
         ))->result_array();
         $page_data['page_name']  = 'subject';
-        $page_data['page_title'] = 'Subjects';
+        $page_data['page_title'] = 'Sujets';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE EXAM MARKS*****/
@@ -94,7 +94,7 @@ class Student extends CI_Controller
         $page_data['subject_id'] = $subject_id;
         $page_data['page_info'] = 'Exam marks';
         $page_data['page_name']  = 'marks';
-        $page_data['page_title'] = 'Exam Marks';
+        $page_data['page_title'] = 'Notes Examens';
         $this->load->view('backend/index', $page_data);
     }
     /**********MANAGING CLASS ROUTINE******************/
@@ -107,7 +107,7 @@ class Student extends CI_Controller
         ))->row();
         $page_data['class_id']   = $student_profile->class_id;
         $page_data['page_name']  = 'class_routine';
-        $page_data['page_title'] = 'Class Routine';
+        $page_data['page_title'] = 'Routine Classes ';
         $this->load->view('backend/index', $page_data);
     }
     /**********WATCH NOTICEBOARD AND EVENT ********************/
@@ -117,7 +117,7 @@ class Student extends CI_Controller
             redirect('login', 'refresh');
         $page_data['notices']    = $this->db->get('noticeboard')->result_array();
         $page_data['page_name']  = 'noticeboard';
-        $page_data['page_title'] = 'Announcements';
+        $page_data['page_title'] = 'Annonces';
         $this->load->view('backend/index', $page_data);
     }
     /******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
@@ -153,7 +153,7 @@ class Student extends CI_Controller
             redirect(base_url() . 'student/manage_profile/', 'refresh');
         }
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = 'Account Profile';
+        $page_data['page_title'] = 'Profil du Compte';
         $page_data['edit_data']  = $this->db->get_where('student', array(
             'student_id' => $this->session->userdata('student_id')
         ))->result_array();
