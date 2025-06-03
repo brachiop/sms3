@@ -39,7 +39,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'student_add';
-        $page_data['page_title'] = 'Add Student';
+        $page_data['page_title'] = 'Ajout Etudiant';
         $this->load->view('backend/index', $page_data);
     }
     function student_information($class_id = '')
@@ -47,7 +47,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         $page_data['page_name']      = 'student_information';
-        $page_data['page_title']     = 'Student Information' . " : " .
+        $page_data['page_title']     = 'Information Etudiant' . " : " .
             $this->crud_model->get_class_name($class_id);
         $page_data['class_id']     = $class_id;
         $this->load->view('backend/index', $page_data);
@@ -57,7 +57,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         $page_data['page_name']  = 'student_marksheet';
-        $page_data['page_title']     = 'Student Marksheet' . " : " .
+        $page_data['page_title']     = 'Notes Etudiant' . " : " .
             $this->crud_model->get_class_name($class_id);
         $page_data['class_id']     = $class_id;
         $this->load->view('backend/index', $page_data);
@@ -146,7 +146,7 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('flash_success', 'Successfully Deleted!');
             redirect(base_url() . 'admin/parent/', 'refresh');
         }
-        $page_data['page_title']     = 'Manage Parents';
+        $page_data['page_title']     = 'Gestion Parents';
         $page_data['page_name']  = 'parent';
         $this->load->view('backend/index', $page_data);
     }
@@ -198,7 +198,7 @@ class Admin extends CI_Controller
         }
         $page_data['teachers']   = $this->db->get('teacher')->result_array();
         $page_data['page_name']  = 'teacher';
-        $page_data['page_title'] = 'Manage Teachers';
+        $page_data['page_title'] = 'Gestion Profs';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE SUBJECTS*****/
@@ -236,7 +236,7 @@ class Admin extends CI_Controller
         $page_data['class_id']   = $param1;
         $page_data['subjects']   = $this->db->get_where('subject', array('class_id' => $param1))->result_array();
         $page_data['page_name']  = 'subject';
-        $page_data['page_title'] = 'Manage Subjects';
+        $page_data['page_title'] = 'Gestion Sujets';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE CLASSES*****/
@@ -273,7 +273,7 @@ class Admin extends CI_Controller
         }
         $page_data['classes']    = $this->db->get('class')->result_array();
         $page_data['page_name']  = 'class';
-        $page_data['page_title'] = 'Manage Classes';
+        $page_data['page_title'] = 'Gestion Classes';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE SECTIONS*****/
@@ -285,7 +285,7 @@ class Admin extends CI_Controller
         if ($class_id == '')
             $class_id           =   $this->db->get('class')->first_row()->class_id;
         $page_data['page_name']  = 'section';
-        $page_data['page_title'] = 'Manage Sections';
+        $page_data['page_title'] = 'Gestion Sections';
         $page_data['class_id']   = $class_id;
         $this->load->view('backend/index', $page_data);
     }
@@ -369,7 +369,7 @@ class Admin extends CI_Controller
         }
         $page_data['exams']      = $this->db->get('exam')->result_array();
         $page_data['page_name']  = 'exam';
-        $page_data['page_title'] = 'Manage Exams';
+        $page_data['page_title'] = 'Gestion Examens';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE EXAM MARKS*****/
@@ -401,7 +401,7 @@ class Admin extends CI_Controller
         $page_data['subject_id'] = $subject_id;
         $page_data['page_info'] = 'Exam marks';
         $page_data['page_name']  = 'marks';
-        $page_data['page_title'] = 'Manage Exam Marks';
+        $page_data['page_title'] = 'Gestion Notes Examens';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE GRADES*****/
@@ -440,7 +440,7 @@ class Admin extends CI_Controller
         }
         $page_data['grades']     = $this->db->get('grade')->result_array();
         $page_data['page_name']  = 'grade';
-        $page_data['page_title'] = 'Manage Grading';
+        $page_data['page_title'] = 'Gestion Notation';
         $this->load->view('backend/index', $page_data);
     }
     /**********MANAGING CLASS ROUTINE******************/
@@ -480,7 +480,7 @@ class Admin extends CI_Controller
             redirect(base_url() . 'admin/class_routine/', 'refresh');
         }
         $page_data['page_name']  = 'class_routine';
-        $page_data['page_title'] = 'Manage Class Routine';
+        $page_data['page_title'] = 'Gestion Routine de classe';
         $this->load->view('backend/index', $page_data);
     }
     /****** DAILY ATTENDANCE *****************/
@@ -504,7 +504,7 @@ class Admin extends CI_Controller
         $page_data['year']     =    $year;
         $page_data['class_id'] =    $class_id;
         $page_data['page_name']  =    'manage_attendance';
-        $page_data['page_title'] =    'Manage Daily Attendance';
+        $page_data['page_title'] =    'Gestion Présence Quotidienne';
         $this->load->view('backend/index', $page_data);
     }
     function attendance_selector()
@@ -584,7 +584,7 @@ class Admin extends CI_Controller
             redirect(base_url() . 'admin/system_settings/', 'refresh');
         }
         $page_data['page_name']  = 'system_settings';
-        $page_data['page_title'] = 'System Settings';
+        $page_data['page_title'] = 'Paramètres Système';
         $page_data['settings']   = $this->db->get('settings')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -620,7 +620,7 @@ class Admin extends CI_Controller
             redirect(base_url() . 'admin/manage_profile/', 'refresh');
         }
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = 'Account Profile';
+        $page_data['page_title'] = 'Profil du Compte';
         $page_data['edit_data']  = $this->db->get_where('admin', array(
             'admin_id' => $this->session->userdata('admin_id')
         ))->result_array();
