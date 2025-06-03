@@ -548,7 +548,7 @@ class Admin extends CI_Controller
             redirect(base_url() . 'admin/noticeboard/', 'refresh');
         }
         $page_data['page_name']  = 'noticeboard';
-        $page_data['page_title'] = 'Manage Announcements';
+        $page_data['page_title'] = 'Gestion des Annonces';
         $page_data['notices']    = $this->db->get('noticeboard')->result_array();
         $this->load->view('backend/index', $page_data);
     }
