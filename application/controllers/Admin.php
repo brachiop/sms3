@@ -30,7 +30,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = 'Dashboard';
+        $page_data['page_title'] = 'Tableau de bord';
         $this->load->view('backend/index', $page_data);
     }
     /****MANAGE STUDENTS CLASSWISE*****/
